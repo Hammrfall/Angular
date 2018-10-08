@@ -1,3 +1,50 @@
 <p>
-  {{name}} user works!
-</p>
+  {{name}} user works!</p>
+  <ul>
+     <li>Age: {{age}}</li>
+    <li>email: {{email}}</li>
+    <li>{{address.street}} {{address.city}} {{address.state}} {{address.zip}}</li> 
+  </ul>
+  <form> <!--data two-way binding-->
+    <div>
+      <label for="name">Name: </label>
+      <input type="text"[(ngModel)]="name" name="name"><br>
+      <label for="age">Age: </label>
+      <input type="number"[(ngModel)]="age" name="age"><br>
+      <label for="email">email: </label>
+      <input type="text"[(ngModel)]="email" name="email"><br>
+      <label for="street">street: </label>
+      <input type="text"[(ngModel)]="address.street" name="street"><br>
+      <label for="city">city: </label>
+      <input type="text" [(ngModel)]="address.city" name="city"><br>
+      <label for="state">state: </label>
+      <input type="text"[(ngModel)]="address.state" name="state"><br>
+      <label for="zipcode">zip code: </label>
+      <input type="number"[(ngModel)]="address.zip" name="zipcode"><br>
+
+
+
+
+
+
+
+    </div>
+
+
+
+  </form>
+
+  <button (click)="onClick()">click me</button>
+<h1>Hobbies</h1>
+<form (submit)="addHobby(hobby.value)">
+  <div>
+    <label for="hobby">New Hobby</label> 
+    <input type="text" #hobby>
+    
+  </div>
+  <button type="submit">Add hobby</button>
+</form>
+<ul>
+<li *ngFor="let hobby of hobbies; let i = index">{{i + 1}}: {{hobby}}<button (click)="deleteHobby(hobby)">x</button></li>
+
+</ul>
